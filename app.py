@@ -124,7 +124,7 @@ def create_chat_session():
                     **Important Considerations for Your Model:**
 
                     *   **Context:** Sentiment can be context-dependent. Consider providing context to your model if necessary.
-                    *   **Sarcasm/Irony:** Train your model to recognize sarcasm and irony, which can invert the apparent sentiment.
+                    *   **Sarcasm/Irony:** (removed)
                     *   **Negation:** Handle negation words (e.g., "not," "no," "never") correctly.
                     *   **Intensity:** Consider the intensity of sentiment (e.g., "good" vs. "amazing").
                     *   **Subjectivity:** Distinguish between subjective opinions and objective facts.
@@ -209,7 +209,7 @@ else:
 
 # Sentiment Analysis Function
 @st.cache_data(show_spinner=False)  # Add caching
-def analyze_sentiment(text, context="", detect_sarcasm=False):
+def analyze_sentiment(text, context=""):
     """Analyzes the sentiment of a given text using the Gemini model."""
 
     # Apply rate limiting before sending request
@@ -218,10 +218,7 @@ def analyze_sentiment(text, context="", detect_sarcasm=False):
         return "Error", "Rate limit exceeded.", 0.0
 
     try:
-        if detect_sarcasm:
-            prompt = f"Context: {context}\nAnalyze the following text for sentiment, paying close attention to potential sarcasm:\n{text}"
-        else:
-            prompt = f"Context: {context}\nAnalyze the following text for sentiment:\n{text}"
+        prompt = f"Context: {context}\nAnalyze the following text for sentiment:\n{text}"
 
         response = chat_session.send_message(prompt)
         full_text = response.text.strip().replace('`', "")  # Save complete response
@@ -278,10 +275,7 @@ context_input = st.text_area(
     "Context (Optional):", help="Provide additional context to help with sentiment analysis."
 )
 
-# Sarcasm Detection Toggle
-detect_sarcasm = st.checkbox(
-    "Detect Sarcasm", value=False, help="Tell the model to consider sarcasm."
-)
+
 
 # Input Text Area
 text_input = st.text_area("Enter text to analyze:", "This is a great app!")
@@ -296,7 +290,7 @@ if st.button("Analyze Sentiment"):
     if text_input:
         with st.spinner("Analyzing..."):
             sentiment, reason, score = analyze_sentiment(
-                text_input, context_input, detect_sarcasm
+                text_input, context_input
             )
             st.write(f"**Sentiment:** {titlecase(sentiment)}")
             st.write(f"**Reason:** {reason}")
@@ -320,7 +314,7 @@ if st.button("Analyze Bulk Sentiments"):
         for i, sentence in enumerate(sentences):
             with st.spinner(f"Analyzing: {sentence}"):
                 sentiment, reason, score = analyze_sentiment(
-                    sentence, context_input, detect_sarcasm
+                    sentence, context_input
                 )  # Pass context
                 # Only append if sentiment analysis was successful
                 if sentiment != "Error":
