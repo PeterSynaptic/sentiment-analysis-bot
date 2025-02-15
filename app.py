@@ -165,6 +165,14 @@ if st.session_state.dark_mode:
             background-color: #262730; /* Dark background */
             color: #f0f2f6;          /* Light text */
         }
+        .stTextInput > div > div > input {
+            background-color: #4f4f4f !important;
+            color: #f0f2f6 !important;
+        }
+        .stTextArea > div > div > textarea {
+            background-color: #4f4f4f !important;
+            color: #f0f2f6 !important;
+        }
         .stButton>button {
             color: #262730;
             background-color: #BB86FC; /* Purple button */
@@ -180,6 +188,14 @@ else:
         .stApp {
             background-color: #f0f2f6; /* Light gray background */
             color: #262730;          /* Dark text */
+        }
+        .stTextInput > div > div > input {
+            background-color: #d3d3d3 !important;
+            color: #262730 !important;
+        }
+        .stTextArea > div > div > textarea {
+            background-color: #d3d3d3 !important;
+            color: #262730 !important;
         }
         .stButton>button {
             color: white;
