@@ -10,7 +10,7 @@ import re  # Import the regex library
 # API key loading and configuration
 # API key loading and configuration
 try:
-    api_key = st.secrets["GOOGLE_API_KEY"]
+    api_key = st.secrets["api_key"]
     genai.configure(api_key=api_key)
 except KeyError:
     st.error("API Key not found in Streamlit Secrets.")
