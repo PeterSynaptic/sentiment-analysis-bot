@@ -146,65 +146,30 @@ def create_chat_session():
 chat_session = create_chat_session()  # Initialise chat session
 
 
-# Styling: Dark Mode Toggle
-if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = True  # Set default to True for dark mode
-
-dark_mode = st.checkbox("Light Mode", value=not st.session_state.dark_mode)  # Invert the checkbox label & value
-
-if dark_mode == st.session_state.dark_mode:
-    st.session_state.dark_mode = not dark_mode
-    st.rerun()  # Rerun app to apply new settings.
-
-
-if st.session_state.dark_mode:
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: #262730; /* Dark background */
-            color: #f0f2f6;          /* Light text */
-        }
-        .stTextInput > div > div > input {
-            background-color: #4f4f4f !important;
-            color: #f0f2f6 !important;
-        }
-        .stTextArea > div > div > textarea {
-            background-color: #4f4f4f !important;
-            color: #f0f2f6 !important;
-        }
-        .stButton>button {
-            color: #262730;
-            background-color: #BB86FC; /* Purple button */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-else:
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: #f0f2f6; /* Light gray background */
-            color: #262730;          /* Dark text */
-        }
-        .stTextInput > div > div > input {
-            background-color: #d3d3d3 !important;
-            color: #262730 !important;
-        }
-        .stTextArea > div > div > textarea {
-            background-color: #d3d3d3 !important;
-            color: #262730 !important;
-        }
-        .stButton>button {
-            color: white;
-            background-color: #4CAF50; /* Green button */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+# Styling: Dark Mode
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #262730; /* Dark background */
+        color: #f0f2f6;          /* Light text */
+    }
+    .stTextInput > div > div > input {
+        background-color: #4f4f4f !important;
+        color: #f0f2f6 !important;
+    }
+    .stTextArea > div > div > textarea {
+        background-color: #4f4f4f !important;
+        color: #f0f2f6 !important;
+    }
+    .stButton>button {
+        color: #262730;
+        background-color: #BB86FC; /* Purple button */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 # Sentiment Analysis Function
