@@ -7,8 +7,6 @@ import threading
 import re  # Import the regex library
 
 # API Key (Replace with your actual API Key - securely manage this!)
-# API key loading and configuration
-# API key loading and configuration
 try:
     api_key = st.secrets["api_key"]
     genai.configure(api_key=api_key)
@@ -222,7 +220,7 @@ def analyze_sentiment(text, context=""):
 st.title("Sentiment Analysis App")
 st.markdown("From text to emotion: explore sentiment analysis.")
 st.markdown(
-    "This app can analyze the sentiment of text. Enter text to analyze manually, or enter multiple sentences for bulk sentiment analysis. The chart displays the distribution of sentiments for bulk sentences entered above."
+    "This app can analyze the sentiment of text. Enter text to analyze manually, or enter multiple sentences for bulk sentiment analysis. The chart displays the distribution of sentiments for bulk sentences entered."
 )
 
 # Sentiment Sensitivity Slider
