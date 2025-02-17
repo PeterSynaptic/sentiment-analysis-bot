@@ -148,12 +148,12 @@ chat_session = create_chat_session()  # Initialise chat session
 
 # Styling: Dark Mode Toggle
 if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = False
+    st.session_state.dark_mode = True  # Set default to True for dark mode
 
-dark_mode = st.checkbox("Dark Mode", value=st.session_state.dark_mode)
+dark_mode = st.checkbox("Light Mode", value=not st.session_state.dark_mode)  # Invert the checkbox label & value
 
-if dark_mode != st.session_state.dark_mode:
-    st.session_state.dark_mode = dark_mode
+if dark_mode == st.session_state.dark_mode:
+    st.session_state.dark_mode = not dark_mode
     st.rerun()  # Rerun app to apply new settings.
 
 
