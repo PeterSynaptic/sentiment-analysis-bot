@@ -130,4 +130,4 @@ Error messages are displayed in the Streamlit UI to inform the user of any probl
 
 ## Author
 
-*  PeterSynaptic
+PeterSynaptic
