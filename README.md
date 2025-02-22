@@ -11,7 +11,6 @@ This Streamlit application performs sentiment analysis on text using the Google 
 *   **Sentiment Sensitivity Adjustment:** Adjust the model's sensitivity to fine-tune the classification.
 *   **Contextual Input:** Provide additional context to improve the accuracy of sentiment analysis.
 *   **Sentiment Distribution Chart:** Visualize the distribution of sentiments for bulk analysis using an interactive Altair chart.
-*   **Dark Mode:** Toggle between light and dark themes for comfortable viewing.
 *   **Rate Limiting:** Implements rate limiting to adhere to API usage restrictions.
 *   **Clear Output:** Provides the sentiment, reason, and score in an easy-to-understand format.
 
